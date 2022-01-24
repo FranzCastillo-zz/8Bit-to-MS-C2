@@ -8,7 +8,12 @@ def bitInput():
             print("Ha ingresado un numero binario invalido. Pruebe de nuevo.")
 
 def toMS(bits):
-    return bits
+    temp = list(bits)
+    if(temp[0] == '0'):
+        temp[0] = '1'
+    else:
+        temp[0] = '0'
+    return "".join(temp)
 
 def toC2(bits):
     c2 = "b"
@@ -19,5 +24,5 @@ def toC2(bits):
 print("Bienvenido al sistema de conversion!")
 while(True):
     bits = bitInput()
-    print("Bits en M&S:\t" + toMS(bits))
-    print("Bits en C2:\t" + toC2(bits))
+    print("Complemento en M&S:\t" + toMS(bits))
+    print("Complemento a 2:\t" + toC2(bits))
