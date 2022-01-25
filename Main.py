@@ -24,15 +24,34 @@ def toMS(bits):
 
 def toC2(bits):
     temp = list(bits)
-    c1 = ''
+    c1 = []
+    
     for i in range(0, len(temp)):
         if(temp[i]== '0'):
-            c1 += '1'
+            c1.append('1')
         else:
-            c1 += '0'
+            c1.append('0')
+    
+    if (c1[7] == '0'):
+        c1[7] = '1'
+    else:
+        c1[7] = '0'
+        
+        if (c1[6] == '0'):
+            c1[6] = '1'
+            
+        for i in range(len(c1)-1, 0, -1):
+            if (c1[i] == '1'):
+                pos = i
+            
+        for i in range(pos, 0, -1):
+            if(temp[i]== '0'):
+                c1[i] = '1'
+            else:
+                c1[i] = '0'
+                
     c2 = "".join(c1)
     return c2
-
 
 
 print("Bienvenido al sistema de conversion!")
